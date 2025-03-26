@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AutoPharmacyID">
+        <s:complexType />
+      </s:element>
+      <s:element name="AutoPharmacyIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AutoPharmacyIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertPharmacy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PharmacyID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Location" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertPharmacyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertPharmacyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AutoUserId">
+        <s:complexType />
+      </s:element>
+      <s:element name="AutoUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AutoUserIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AutoPharmacyIDSoapIn">
+    <wsdl:part name="parameters" element="tns:AutoPharmacyID" />
+  </wsdl:message>
+  <wsdl:message name="AutoPharmacyIDSoapOut">
+    <wsdl:part name="parameters" element="tns:AutoPharmacyIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertPharmacySoapIn">
+    <wsdl:part name="parameters" element="tns:insertPharmacy" />
+  </wsdl:message>
+  <wsdl:message name="insertPharmacySoapOut">
+    <wsdl:part name="parameters" element="tns:insertPharmacyResponse" />
+  </wsdl:message>
+  <wsdl:message name="AutoUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:AutoUserId" />
+  </wsdl:message>
+  <wsdl:message name="AutoUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:AutoUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="loginSoapIn">
+    <wsdl:part name="parameters" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="loginSoapOut">
+    <wsdl:part name="parameters" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LoginWebServiceSoap">
+    <wsdl:operation name="AutoPharmacyID">
+      <wsdl:input message="tns:AutoPharmacyIDSoapIn" />
+      <wsdl:output message="tns:AutoPharmacyIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertPharmacy">
+      <wsdl:input message="tns:insertPharmacySoapIn" />
+      <wsdl:output message="tns:insertPharmacySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AutoUserId">
+      <wsdl:input message="tns:AutoUserIdSoapIn" />
+      <wsdl:output message="tns:AutoUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdl:input message="tns:loginSoapIn" />
+      <wsdl:output message="tns:loginSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LoginWebServiceSoap" type="tns:LoginWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AutoPharmacyID">
+      <soap:operation soapAction="http://tempuri.org/AutoPharmacyID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertPharmacy">
+      <soap:operation soapAction="http://tempuri.org/insertPharmacy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoUserId">
+      <soap:operation soapAction="http://tempuri.org/AutoUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap:operation soapAction="http://tempuri.org/login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LoginWebServiceSoap12" type="tns:LoginWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AutoPharmacyID">
+      <soap12:operation soapAction="http://tempuri.org/AutoPharmacyID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertPharmacy">
+      <soap12:operation soapAction="http://tempuri.org/insertPharmacy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoUserId">
+      <soap12:operation soapAction="http://tempuri.org/AutoUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap12:operation soapAction="http://tempuri.org/login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LoginWebService">
+    <wsdl:port name="LoginWebServiceSoap" binding="tns:LoginWebServiceSoap">
+      <soap:address location="https://localhost:44393/LoginWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LoginWebServiceSoap12" binding="tns:LoginWebServiceSoap12">
+      <soap12:address location="https://localhost:44393/LoginWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
